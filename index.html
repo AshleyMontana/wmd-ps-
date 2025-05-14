@@ -3,145 +3,179 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Montana | Game Store</title>
+  <title>Montana | Home</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     :root {
       --bg-light: #f9f9f9;
       --bg-dark: #121212;
-      --text-light: #f9f9f9;
+      --text-light: #ffffff;
       --text-dark: #212529;
       --primary: #0057ff;
     }
     body {
       background-color: var(--bg-light);
       color: var(--text-dark);
-      transition: background-color 0.3s, color 0.3s;
+      transition: all 0.3s ease-in-out;
     }
     .dark-mode {
       background-color: var(--bg-dark) !important;
       color: var(--text-light) !important;
     }
-    .dark-mode .navbar, .dark-mode .card {
+    .dark-mode .navbar, .dark-mode .card, .dark-mode footer {
       background-color: #1f1f1f !important;
+      color: #f1f1f1 !important;
     }
-    .product-card img {
+    .hero {
+      background: linear-gradient(to right, #000428, #004e92);
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+    }
+    .game-card img {
       border-radius: 10px;
-      transition: transform 0.3s ease-in-out;
+      transition: transform 0.3s;
     }
-    .product-card:hover img {
+    .game-card:hover img {
       transform: scale(1.05);
     }
-    .price {
-      font-weight: bold;
-      font-size: 1.2rem;
-      color: #28a745;
-    }
     footer {
+      background-color: #222;
+      color: #ccc;
       padding: 1rem;
       text-align: center;
-      background: #222;
-      color: #ccc;
       margin-top: 2rem;
     }
   </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">Montana</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="games.html">Games</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-          <li class="nav-item">
-            <button class="btn btn-sm btn-outline-light ms-2" id="modeToggle">Dark Mode</button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
-  <!-- Hero Section -->
-  <header class="py-5 text-center text-white" style="background: linear-gradient(to right, #000428, #004e92);">
-    <div class="container">
-      <h1 class="display-4 fw-bold">Welcome to Montana</h1>
-      <p class="lead">Your ultimate destination to buy trending and classic PlayStation games.</p>
-      <a href="games.html" class="btn btn-primary btn-lg mt-3">Shop All Games</a>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">Montana</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="games.html">Games</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item">
+          <button class="btn btn-sm btn-outline-light ms-2" id="modeToggle">Dark Mode</button>
+        </li>
+      </ul>
     </div>
-  </header>
+  </div>
+</nav>
 
-  <!-- Featured Products -->
-  <section class="py-5">
-    <div class="container">
-      <h2 class="mb-4">Featured Games</h2>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col product-card">
-          <div class="card h-100">
-            <img src="https://upload.wikimedia.org/wikipedia/en/7/74/Spider-Man_2_PS5_box_art.jpg" class="card-img-top" alt="Spider-Man 2">
-            <div class="card-body">
-              <h5 class="card-title">Spider-Man 2</h5>
-              <p class="card-text">Experience dual hero gameplay with Peter & Miles in this PS5 exclusive.</p>
-              <p class="price">$69.99</p>
-              <a href="#" class="btn btn-primary w-100">Buy Now</a>
-            </div>
-          </div>
-        </div>
-        <div class="col product-card">
-          <div class="card h-100">
-            <img src="https://upload.wikimedia.org/wikipedia/en/6/6d/God_of_War_Ragnarok_cover.jpg" class="card-img-top" alt="God of War Ragnarok">
-            <div class="card-body">
-              <h5 class="card-title">God of War: Ragnarok</h5>
-              <p class="card-text">Kratos and Atreus face Norse gods in this award-winning action game.</p>
-              <p class="price">$59.99</p>
-              <a href="#" class="btn btn-primary w-100">Buy Now</a>
-            </div>
-          </div>
-        </div>
-        <div class="col product-card">
-          <div class="card h-100">
-            <img src="https://upload.wikimedia.org/wikipedia/en/b/bd/The_Last_of_Us_Part_I.jpg" class="card-img-top" alt="The Last of Us Part I">
-            <div class="card-body">
-              <h5 class="card-title">The Last of Us Part I</h5>
-              <p class="card-text">Remastered storytelling masterpiece with enhanced visuals.</p>
-              <p class="price">$49.99</p>
-              <a href="#" class="btn btn-primary w-100">Buy Now</a>
-            </div>
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Welcome to Montana Game Store</h1>
+    <p class="lead mb-4">Buy the latest PlayStation hits and classic legends all in one place.</p>
+    <button class="btn btn-success btn-lg" id="freeTrialBtn" style="display: none;">Try a Game Free</button>
+    <button class="btn btn-outline-light btn-lg ms-2" id="loginTrigger">Login</button>
+  </div>
+</section>
+
+<!-- Featured Games -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Featured Games</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col game-card">
+        <div class="card h-100">
+          <img src="https://upload.wikimedia.org/wikipedia/en/7/74/Spider-Man_2_PS5_box_art.jpg" class="card-img-top" alt="Spider-Man 2">
+          <div class="card-body">
+            <h5 class="card-title">Spider-Man 2</h5>
+            <p class="card-text">Swing through New York as Peter and Miles!</p>
+            <a href="games.html" class="btn btn-primary w-100">Shop Now</a>
           </div>
         </div>
       </div>
+      <div class="col game-card">
+        <div class="card h-100">
+          <img src="https://upload.wikimedia.org/wikipedia/en/6/6d/God_of_War_Ragnarok_cover.jpg" class="card-img-top" alt="God of War">
+          <div class="card-body">
+            <h5 class="card-title">God of War: Ragnarok</h5>
+            <p class="card-text">An epic Norse mythology adventure with Kratos & Atreus.</p>
+            <a href="games.html" class="btn btn-primary w-100">Shop Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col game-card">
+        <div class="card h-100">
+          <img src="https://upload.wikimedia.org/wikipedia/en/b/bd/The_Last_of_Us_Part_I.jpg" class="card-img-top" alt="The Last of Us">
+          <div class="card-body">
+            <h5 class="card-title">The Last of Us Part I</h5>
+            <p class="card-text">Experience the emotional survival journey, rebuilt for PS5.</p>
+            <a href="games.html" class="btn btn-primary w-100">Shop Now</a>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Promo Section -->
-  <section class="py-5 bg-light text-center">
-    <div class="container">
-      <h3>Classic Deals Now Live!</h3>
-      <p>Get up to 50% off legendary titles like Tekken 3 and Crash Bandicoot.</p>
-      <a href="games.html" class="btn btn-success btn-lg">View Classics</a>
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Montana Game Store. All rights reserved.</p>
+</footer>
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header">
+        <h5 class="modal-title">Login to Access Free Trial</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" id="username" class="form-control mb-3" placeholder="Enter Username">
+        <button class="btn btn-primary w-100" onclick="loginUser()">Login</button>
+      </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Montana Game Store. All rights reserved.</p>
-  </footer>
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const freeTrialBtn = document.getElementById('freeTrialBtn');
+  const loginTrigger = document.getElementById('loginTrigger');
+  const isLoggedIn = localStorage.getItem('montanaUser');
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const toggle = document.getElementById('modeToggle');
-    toggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      toggle.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
-    });
-  </script>
+  if (isLoggedIn) {
+    freeTrialBtn.style.display = 'inline-block';
+    loginTrigger.style.display = 'none';
+  }
+
+  loginTrigger.addEventListener('click', () => {
+    const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+    loginModal.show();
+  });
+
+  function loginUser() {
+    const username = document.getElementById('username').value.trim();
+    if (username) {
+      localStorage.setItem('montanaUser', username);
+      bootstrap.Modal.getInstance(document.getElementById('loginModal')).hide();
+      freeTrialBtn.style.display = 'inline-block';
+      loginTrigger.style.display = 'none';
+      window.location.href = "trial.html";
+    }
+  }
+
+  document.getElementById('modeToggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    document.getElementById('modeToggle').textContent = isDark ? 'Light Mode' : 'Dark Mode';
+  });
+</script>
 </body>
 </html>
+
