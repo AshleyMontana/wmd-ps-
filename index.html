@@ -2,49 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Montana | Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Montana | All Games</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    :root {
-      --bg-light: #f9f9f9;
-      --bg-dark: #121212;
-      --text-light: #ffffff;
-      --text-dark: #212529;
-      --primary: #0057ff;
-    }
     body {
-      background-color: var(--bg-light);
-      color: var(--text-dark);
-      transition: all 0.3s ease-in-out;
+      background-color: #f8f9fa;
     }
-    .dark-mode {
-      background-color: var(--bg-dark) !important;
-      color: var(--text-light) !important;
+    .navbar-brand img {
+      width: 50px; /* Adjust the size as needed */
+      height: auto;
     }
-    .dark-mode .navbar, .dark-mode .card, .dark-mode footer {
-      background-color: #1f1f1f !important;
-      color: #f1f1f1 !important;
-    }
-    .hero {
-      background: linear-gradient(to right, #000428, #004e92);
-      color: white;
-      padding: 100px 20px;
-      text-align: center;
-    }
-    .game-card img {
+    .about-image {
+      max-width: 100%;
       border-radius: 10px;
-      transition: transform 0.3s;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
-    .game-card:hover img {
-      transform: scale(1.05);
+    .container {
+      margin-top: 20px;
+    }
+    .btn-custom {
+      background-color: #0057ff;
+      color: white;
     }
     footer {
       background-color: #222;
-      color: #ccc;
-      padding: 1rem;
+      color: white;
       text-align: center;
-      margin-top: 2rem;
+      padding: 20px;
+      margin-top: 30px;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+    footer a:hover {
+      color: #0057ff;
     }
   </style>
 </head>
@@ -53,136 +47,81 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="index.html">Montana</a>
+    <!-- Logo with the custom image -->
+    <a class="navbar-brand fw-bold" href="index.html">
+      <img src="https://i.postimg.cc/PJ0rSdX4/ps.png" alt="Montana Logo">
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav align-items-center">
-        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="games.html">Games</a></li>
         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
         <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        <li class="nav-item">
-          <button class="btn btn-sm btn-outline-light ms-2" id="modeToggle">Dark Mode</button>
-        </li>
-        <li class="nav-item ms-2">
-          <button class="btn btn-outline-success btn-sm" id="loginTrigger">Login</button>
-        </li>
+        <!-- Login Button on the top-right -->
+        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- Hero Section -->
-<section class="hero">
+<!-- Header -->
+<header class="py-5 text-center text-white" style="background: linear-gradient(to right, #000428, #004e92);">
   <div class="container">
-    <h1 class="display-4 fw-bold">Welcome to Montana Game Store</h1>
-    <p class="lead mb-4">Buy the latest PlayStation hits and classic legends all in one place.</p>
-    <button class="btn btn-success btn-lg" id="freeTrialBtn">Try a Game Free</button>
+    <h1 class="fw-bold">Welcome to Montana Game Store</h1>
+    <p class="lead">The best place to buy and play your favorite PlayStation games</p>
   </div>
-</section>
+</header>
 
-<!-- Featured Games -->
-<section class="py-5">
-  <div class="container">
-    <h2 class="text-center mb-4">Featured Games</h2>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col game-card">
-        <div class="card h-100">
-          <img src="https://i.postimg.cc/hvJHZgw2/wmd.jpg" 
-          <div class="card-body">
-            <h5 class="card-title">Spider-Man 2</h5>
-            <p class="card-text">Swing through New York as Peter and Miles!</p>
-            <a href="games.html" class="btn btn-primary w-100">Shop Now</a>
-          </div>
-        </div>
-      </div>
-      <div class="col game-card">
-        <div class="card h-100">
-          <img src="https://i.postimg.cc/sgr3x6vv/composition.jpg"
-          <div class="card-body">
-            <h5 class="card-title">God of War: Ragnarok</h5>
-            <p class="card-text">An epic Norse mythology adventure with Kratos & Atreus.</p>
-            <a href="games.html" class="btn btn-primary w-100">Shop Now</a>
-          </div>
-        </div>
-      </div>
-      <div class="col game-card">
-        <div class="card h-100">
-          <img src="https://i.postimg.cc/QNmt2rt0/last-of-usssssss.png" 
-          <div class="card-body">
-            <h5 class="card-title">The Last of Us Part I</h5>
-            <p class="card-text">Experience the emotional survival journey, rebuilt for PS5.</p>
-            <a href="games.html" class="btn btn-primary w-100">Shop Now</a>
-          </div>
-        </div>
-      </div>
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <h3>Game Categories</h3>
+      <ul>
+        <li>Action</li>
+        <li>Adventure</li>
+        <li>RPG</li>
+        <li>Sports</li>
+        <li>Fighting</li>
+      </ul>
     </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer>
-  <p>&copy; 2025 Montana Game Store. All rights reserved.</p>
-</footer>
-
-<!-- Login Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content bg-dark text-white">
-      <div class="modal-header">
-        <h5 class="modal-title">Login to Access Free Trial</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <input type="text" id="username" class="form-control mb-3" placeholder="Enter Username">
-        <button class="btn btn-primary w-100" onclick="loginUser()">Login</button>
-      </div>
+    <div class="col-12 col-md-6">
+      <h3>Latest News</h3>
+      <p>Get ready for the newest releases this year!</p>
     </div>
   </div>
 </div>
 
-<!-- Scripts -->
+<!-- Free Trial Section -->
+<div class="container my-5">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h2>Free Trial</h2>
+      <p>Sign in to access the latest game trials and exclusive videos!</p>
+      <!-- Free Trial Button -->
+      <a href="free-trial.html" class="btn btn-custom">Start Free Trial</a>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Montana Game Store. All rights reserved.</p>
+  <p>Contact Us: +26776957324</p>
+  <div>
+    <a href="https://www.facebook.com" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com" target="_blank">Instagram</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  const freeTrialBtn = document.getElementById('freeTrialBtn');
-  const loginTrigger = document.getElementById('loginTrigger');
 
-  function isLoggedIn() {
-    return !!localStorage.getItem('montanaUser');
-  }
-
-  function loginUser() {
-    const username = document.getElementById('username').value.trim();
-    if (username) {
-      localStorage.setItem('montanaUser', username);
-      bootstrap.Modal.getInstance(document.getElementById('loginModal')).hide();
-      alert('Login successful! You can now access the free trial.');
-    }
-  }
-
-  freeTrialBtn.addEventListener('click', () => {
-    if (isLoggedIn()) {
-      window.location.href = "trial.html";
-    } else {
-      const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
-      loginModal.show();
-    }
-  });
-
-  loginTrigger.addEventListener('click', () => {
-    const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
-    loginModal.show();
-  });
-
-  document.getElementById('modeToggle').addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    const isDark = document.body.classList.contains('dark-mode');
-    document.getElementById('modeToggle').textContent = isDark ? 'Light Mode' : 'Dark Mode';
-  });
-</script>
 </body>
 </html>
 
