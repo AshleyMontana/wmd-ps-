@@ -82,49 +82,8 @@
 <!-- Game Grid -->
 <section class="py-5">
   <div class="container">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-
-      <!-- Game Cards -->
-      <script>
-        const games = [
-          { name: "Spider-Man 2", price: 69.99, img: "https://upload.wikimedia.org/wikipedia/en/7/74/Spider-Man_2_PS5_box_art.jpg" },
-          { name: "God of War Ragnarok", price: 59.99, img: "https://upload.wikimedia.org/wikipedia/en/6/6d/God_of_War_Ragnarok_cover.jpg" },
-          { name: "The Last of Us Part I", price: 49.99, img: "https://upload.wikimedia.org/wikipedia/en/b/bd/The_Last_of_Us_Part_I.jpg" },
-          { name: "Tekken 3 (Classic)", price: 19.99, img: "https://upload.wikimedia.org/wikipedia/en/d/d7/Tekken_3_cover.jpg" },
-          { name: "Crash Bandicoot Trilogy", price: 39.99, img: "https://upload.wikimedia.org/wikipedia/en/b/b3/Crash_Bandicoot_N._Sane_Trilogy.jpg" },
-          { name: "FIFA 23", price: 44.99, img: "https://upload.wikimedia.org/wikipedia/en/4/40/FIFA_23_Cover.jpg" },
-          { name: "Gran Turismo 7", price: 69.99, img: "https://upload.wikimedia.org/wikipedia/en/9/9c/Gran_Turismo_7_cover_art.jpg" },
-          { name: "Uncharted 4", price: 29.99, img: "https://upload.wikimedia.org/wikipedia/en/2/20/Uncharted_4_box_artwork.jpg" },
-          { name: "Ratchet & Clank: Rift Apart", price: 59.99, img: "https://upload.wikimedia.org/wikipedia/en/8/87/Ratchet_%26_Clank_Rift_Apart_cover_art.jpg" },
-          { name: "Resident Evil 4 Remake", price: 59.99, img: "https://upload.wikimedia.org/wikipedia/en/3/3e/Resident_Evil_4_Remake_cover_art.jpg" },
-          { name: "Elden Ring", price: 69.99, img: "https://upload.wikimedia.org/wikipedia/en/b/b9/Elden_Ring_Box_art.jpg" },
-          { name: "Cyberpunk 2077", price: 39.99, img: "https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg" },
-          { name: "Call of Duty: Modern Warfare II", price: 69.99, img: "https://upload.wikimedia.org/wikipedia/en/9/9d/Call_of_Duty_Modern_Warfare_II.jpg" },
-          { name: "Hogwarts Legacy", price: 59.99, img: "https://upload.wikimedia.org/wikipedia/en/3/31/Hogwarts_Legacy_cover.jpg" },
-          { name: "Final Fantasy XVI", price: 69.99, img: "https://upload.wikimedia.org/wikipedia/en/3/38/Final_Fantasy_XVI_cover_art.jpg" }
-        ];
-
-        window.addEventListener("DOMContentLoaded", () => {
-          const row = document.querySelector(".row");
-          games.forEach(game => {
-            const col = document.createElement("div");
-            col.className = "col product-card";
-            col.innerHTML = `
-              <div class="card h-100">
-                <img src="${game.img}" class="card-img-top" alt="${game.name}">
-                <div class="card-body">
-                  <h5 class="card-title">${game.name}</h5>
-                  <p class="card-text">Get ready to experience the thrill!</p>
-                  <p class="price">$${game.price.toFixed(2)}</p>
-                  <a href="#" class="btn btn-primary w-100" onclick='addToCart("${game.name}", ${game.price})'>Buy Now</a>
-                </div>
-              </div>
-            `;
-            row.appendChild(col);
-          });
-        });
-      </script>
-
+    <div class="row row-cols-1 row-cols-md-3 g-4" id="game-list">
+      <!-- Game cards will be inserted here by JavaScript -->
     </div>
   </div>
 </section>
@@ -143,22 +102,51 @@
     toggle.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
   });
 
+  const games = [
+    { name: "Spider-Man 2", price: 69.99, img: "https://upload.wikimedia.org/wikipedia/en/7/74/Spider-Man_2_PS5_box_art.jpg", desc: "Swing through NYC as Peter & Miles." },
+    { name: "God of War: Ragnarok", price: 59.99, img: "https://upload.wikimedia.org/wikipedia/en/6/6d/God_of_War_Ragnarok_cover.jpg", desc: "Battle Norse gods as Kratos." },
+    { name: "The Last of Us Part I", price: 49.99, img: "https://upload.wikimedia.org/wikipedia/en/b/bd/The_Last_of_Us_Part_I.jpg", desc: "Survive the post-apocalypse." },
+    { name: "Tekken 3", price: 19.99, img: "https://upload.wikimedia.org/wikipedia/en/d/d7/Tekken_3_cover.jpg", desc: "Classic arcade fighting remastered." },
+    { name: "Crash Bandicoot Trilogy", price: 39.99, img: "https://upload.wikimedia.org/wikipedia/en/b/b3/Crash_Bandicoot_N._Sane_Trilogy.jpg", desc: "Three games in one package." },
+    { name: "FIFA 23", price: 44.99, img: "https://upload.wikimedia.org/wikipedia/en/4/40/FIFA_23_Cover.jpg", desc: "The final FIFA release from EA." },
+    { name: "Horizon Forbidden West", price: 59.99, img: "https://upload.wikimedia.org/wikipedia/en/3/3e/Horizon_Forbidden_West_cover_art.jpg", desc: "Aloy returns to explore new lands." },
+    { name: "Gran Turismo 7", price: 59.99, img: "https://upload.wikimedia.org/wikipedia/en/2/2f/Gran_Turismo_7_box_art.jpg", desc: "Realistic racing at its finest." },
+    { name: "Resident Evil 4", price: 49.99, img: "https://upload.wikimedia.org/wikipedia/en/1/14/Resident_Evil_4_Remake_cover_art.jpg", desc: "Remake of the horror classic." },
+    { name: "Elden Ring", price: 59.99, img: "https://upload.wikimedia.org/wikipedia/en/b/b9/Elden_Ring_Box_art.jpg", desc: "A vast open-world RPG adventure." },
+    { name: "Uncharted: Legacy", price: 39.99, img: "https://upload.wikimedia.org/wikipedia/en/0/0e/Uncharted_The_Lost_Legacy_cover.png", desc: "Treasure hunting with Chloe & Nadine." },
+    { name: "Ghost of Tsushima", price: 49.99, img: "https://upload.wikimedia.org/wikipedia/en/a/a3/Ghost_of_Tsushima.jpg", desc: "Fight for freedom in feudal Japan." },
+    { name: "Ratchet & Clank", price: 49.99, img: "https://upload.wikimedia.org/wikipedia/en/0/0a/Ratchet_%26_Clank_-_Rift_Apart_cover_art.jpg", desc: "Dimension-hopping chaos and fun." },
+    { name: "Returnal", price: 39.99, img: "https://upload.wikimedia.org/wikipedia/en/e/e7/Returnal_cover_art.jpg", desc: "Survive alien horrors in this roguelike." },
+    { name: "Demon's Souls", price: 49.99, img: "https://upload.wikimedia.org/wikipedia/en/2/2e/Demon%27s_Souls_Remake.jpg", desc: "Remastered brutal classic." },
+  ];
+
+  const gameList = document.getElementById('game-list');
+
+  games.forEach(game => {
+    const col = document.createElement('div');
+    col.className = "col product-card";
+    col.innerHTML = `
+      <div class="card h-100">
+        <img src="${game.img}" class="card-img-top" alt="${game.name}">
+        <div class="card-body">
+          <h5 class="card-title">${game.name}</h5>
+          <p class="card-text">${game.desc}</p>
+          <p class="price">$${game.price.toFixed(2)}</p>
+          <a href="cart.html" class="btn btn-primary w-100" onclick="addToCart('${game.name}', ${game.price})">Buy Now</a>
+        </div>
+      </div>
+    `;
+    gameList.appendChild(col);
+  });
+
   function addToCart(name, price) {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const index = cart.findIndex(item => item.name === name);
-    if (index > -1) {
-      cart[index].quantity += 1;
-    } else {
-      cart.push({ name, price, quantity: 1 });
-    }
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert(`${name} added to cart!`);
+    const cart = JSON.parse(localStorage.getItem('montanaCart')) || [];
+    cart.push({ name, price });
+    localStorage.setItem('montanaCart', JSON.stringify(cart));
   }
 </script>
 
 </body>
 </html>
-
-
 
 
