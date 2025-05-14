@@ -58,7 +58,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav align-items-center">
         <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="games.html">Games</a></li>
         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
@@ -66,6 +66,9 @@
         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         <li class="nav-item">
           <button class="btn btn-sm btn-outline-light ms-2" id="modeToggle">Dark Mode</button>
+        </li>
+        <li class="nav-item ms-2">
+          <button class="btn btn-outline-success btn-sm" id="loginTrigger">Login</button>
         </li>
       </ul>
     </div>
@@ -77,8 +80,7 @@
   <div class="container">
     <h1 class="display-4 fw-bold">Welcome to Montana Game Store</h1>
     <p class="lead mb-4">Buy the latest PlayStation hits and classic legends all in one place.</p>
-    <button class="btn btn-success btn-lg" id="freeTrialBtn" style="display: none;">Try a Game Free</button>
-    <button class="btn btn-outline-light btn-lg ms-2" id="loginTrigger">Login</button>
+    <button class="btn btn-success btn-lg" id="freeTrialBtn">Try a Game Free</button>
   </div>
 </section>
 
@@ -147,28 +149,33 @@
 <script>
   const freeTrialBtn = document.getElementById('freeTrialBtn');
   const loginTrigger = document.getElementById('loginTrigger');
-  const isLoggedIn = localStorage.getItem('montanaUser');
 
-  if (isLoggedIn) {
-    freeTrialBtn.style.display = 'inline-block';
-    loginTrigger.style.display = 'none';
+  function isLoggedIn() {
+    return !!localStorage.getItem('montanaUser');
   }
-
-  loginTrigger.addEventListener('click', () => {
-    const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
-    loginModal.show();
-  });
 
   function loginUser() {
     const username = document.getElementById('username').value.trim();
     if (username) {
       localStorage.setItem('montanaUser', username);
       bootstrap.Modal.getInstance(document.getElementById('loginModal')).hide();
-      freeTrialBtn.style.display = 'inline-block';
-      loginTrigger.style.display = 'none';
-      window.location.href = "trial.html";
+      alert('Login successful! You can now access the free trial.');
     }
   }
+
+  freeTrialBtn.addEventListener('click', () => {
+    if (isLoggedIn()) {
+      window.location.href = "trial.html";
+    } else {
+      const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+      loginModal.show();
+    }
+  });
+
+  loginTrigger.addEventListener('click', () => {
+    const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+    loginModal.show();
+  });
 
   document.getElementById('modeToggle').addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
@@ -178,3 +185,4 @@
 </script>
 </body>
 </html>
+
