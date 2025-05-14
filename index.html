@@ -52,15 +52,58 @@
       text-align: center;
       margin-top: 2rem;
     }
+
+    /* Custom Logo styling */
+    .logo {
+      width: 50px;  /* Adjust the size as needed */
+      height: auto;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 999;
+    }
+
   </style>
 </head>
 <body>
+
+<!-- Logo -->
+<a href="index.html"><img src="https://i.postimg.cc/PJ0rSdX4/ps.png" alt="Montana Logo" class="logo"></a>
 
 <!-- Free Trial Button -->
 <a href="#" class="btn btn-warning promo-btn" id="freeTrialBtn">🎮 Free Trial</a>
 
 <!-- Login Button -->
 <button class="btn btn-primary login-btn" onclick="showLogin()">Login</button>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">Montana</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="games.html">Games</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="promotion.html">Promotion</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="delivery.html">Delivery</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 <!-- Hero Section -->
 <section class="hero text-white">
@@ -76,7 +119,7 @@
   <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col">
       <div class="card bg-dark text-white">
-        <img src="https://upload.wikimedia.org/wikipedia/en/7/74/Spider-Man_2_PS5_box_art.jpg" class="card-img-top" alt="Spider-Man 2">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Spider-Man_2_PS5_box_art.jpg" class="card-img-top" alt="Spider-Man 2">
         <div class="card-body">
           <h5 class="card-title">Spider-Man 2</h5>
           <p class="card-text">Swing through NYC as Peter and Miles.</p>
@@ -85,7 +128,7 @@
     </div>
     <div class="col">
       <div class="card bg-dark text-white">
-        <img src="https://upload.wikimedia.org/wikipedia/en/6/6d/God_of_War_Ragnarok_cover.jpg" class="card-img-top" alt="God of War">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/58/God_of_War_Ragnarok_cover.jpg" class="card-img-top" alt="God of War: Ragnarok">
         <div class="card-body">
           <h5 class="card-title">God of War: Ragnarok</h5>
           <p class="card-text">An epic Norse saga continues.</p>
@@ -94,9 +137,9 @@
     </div>
     <div class="col">
       <div class="card bg-dark text-white">
-        <img src="https://upload.wikimedia.org/wikipedia/en/b/bd/The_Last_of_Us_Part_I.jpg" class="card-img-top" alt="Last of Us">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/The_Last_of_Us_Part_I_PS5_Box_Art.jpg" class="card-img-top" alt="The Last of Us Part I">
         <div class="card-body">
-          <h5 class="card-title">The Last of Us</h5>
+          <h5 class="card-title">The Last of Us Part I</h5>
           <p class="card-text">A remastered survival story.</p>
         </div>
       </div>
@@ -107,6 +150,16 @@
 <!-- Footer -->
 <footer>
   <p>&copy; 2025 Montana Game Store. All rights reserved.</p>
+  <p>
+    <a href="tel:+26776957324" style="color: #ccc; text-decoration: none;">Contact Us: +267 7695 7324</a>
+  </p>
+  <p>
+    <a href="https://www.facebook.com" target="_blank" style="color: #ccc; text-decoration: none;">Facebook</a> |
+    <a href="https://www.instagram.com" target="_blank" style="color: #ccc; text-decoration: none;">Instagram</a> |
+    <a href="about.html" style="color: #ccc; text-decoration: none;">About</a> |
+    <a href="promotion.html" style="color: #ccc; text-decoration: none;">Promotion</a> |
+    <a href="delivery.html" style="color: #ccc; text-decoration: none;">Delivery</a>
+  </p>
 </footer>
 
 <!-- Login & Free Trial Scripts -->
