@@ -59,7 +59,6 @@
       <ul class="navbar-nav me-auto">
         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
         <li class="nav-item"><a class="nav-link active" href="games.html">Games</a></li>
-        <li class="nav-item"><a class="nav-link" href="promotions.html">Promotions</a></li>
         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
       </ul>
@@ -178,9 +177,9 @@
     });
   }
 
-  // Search functionality
+  // Enhanced search functionality
   function searchGames() {
-    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
     const gameCards = document.getElementsByClassName('game-card');
     let found = false;
 
