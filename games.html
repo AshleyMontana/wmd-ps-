@@ -3,199 +3,212 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Montana | Games</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <title>Montana | All Games</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
+    :root {
+      --primary: #0057ff;
+      --bg-dark: #121212;
+      --text-light: #f9f9f9;
+      --text-dark: #212529;
+    }
+
     body {
-      background-color: #121212;
-      color: #f9f9f9;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
     }
 
     .navbar {
-      background-color: #0057ff;
+      background-color: #000;
     }
 
-    .navbar-brand {
-      font-weight: bold;
-      color: #fff;
+    .navbar-brand img {
+      height: 40px;
+      margin-right: 10px;
     }
 
-    .nav-link {
-      color: #fff !important;
-      font-weight: 500;
-      margin-right: 1rem;
-      transition: background 0.3s;
-    }
-
-    .nav-link:hover {
-      background-color: #003ecb;
-      border-radius: 5px;
-      padding: 0.4rem 0.75rem;
-    }
-
-    header {
-      background: linear-gradient(to right, #000428, #004e92);
-      padding: 4rem 1rem;
-      text-align: center;
-      color: white;
-    }
-
-    .card {
-      background-color: #1f1f1f;
-      border: none;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .card img {
-      height: 250px;
+    .product-card img {
+      border-radius: 10px;
+      transition: transform 0.3s ease-in-out;
+      height: 300px;
       object-fit: cover;
-      border-radius: 0.5rem;
     }
 
-    .card-body {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .product-card:hover img {
+      transform: scale(1.05);
     }
 
     .price {
       font-weight: bold;
-      color: #00ff88;
-    }
-
-    .alert {
-      display: none;
+      color: #28a745;
     }
 
     footer {
-      background-color: #1f1f1f;
-      color: #ccc;
-      text-align: center;
       padding: 1rem;
+      text-align: center;
+      background: #222;
+      color: #ccc;
       margin-top: 2rem;
-    }
-
-    #searchInput {
-      max-width: 500px;
-      margin: 2rem auto 1rem;
     }
   </style>
 </head>
 <body>
 
-<!-- Navigation Bar -->
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
   <div class="container">
-    <a class="navbar-brand" href="index.html">🎮 Montana</a>
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="https://i.postimg.cc/PJ0rSdX4/ps.png" alt="Montana Logo" />
+      <span class="fw-bold text-light">Montana</span>
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link active bg-light text-dark rounded" href="#">Games</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
-        <li class="nav-item"><a class="nav-link" href="cart.html">🛒 Cart</a></li>
+        <li class="nav-item"><a class="nav-link text-light" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-light" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link text-light" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link text-light" href="promotion.html">Promotion</a></li>
+        <li class="nav-item"><a class="nav-link text-light" href="cart.html">Cart</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
 <!-- Header -->
-<header>
+<header class="py-5 text-center text-white" style="background: linear-gradient(to right, #000428, #004e92);">
   <div class="container">
-    <h1>Our Top Games</h1>
-    <p>Discover the best PlayStation games available now</p>
+    <h1 class="fw-bold">Game Library</h1>
+    <p class="lead">Explore and purchase top PlayStation games</p>
   </div>
 </header>
 
-<!-- Search -->
-<div class="container text-center">
-  <input type="text" id="searchInput" class="form-control form-control-lg" placeholder="Search for a game...">
-  <div id="noResults" class="alert alert-warning mt-3">🚧 Game coming soon!</div>
-</div>
+<!-- Game Grid -->
+<section class="py-5">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
 
-<!-- Games Grid -->
-<div class="container py-5">
-  <div class="row row-cols-1 row-cols-md-3 g-4" id="gamesGrid">
+      <!-- Games (15 total) -->
+      <!-- Example Game Card -->
+      <script>
+        const games = [
+          {
+            title: "Spider-Man 2",
+            price: "$69.99",
+            image: "https://upload.wikimedia.org/wikipedia/en/7/74/Spider-Man_2_PS5_box_art.jpg",
+            desc: "Play as Peter & Miles in a fast-paced open world adventure."
+          },
+          {
+            title: "God of War: Ragnarok",
+            price: "359.99BWP",
+            image: "https://upload.wikimedia.org/wikipedia/en/6/6d/God_of_War_Ragnarok_cover.jpg",
+            desc: "Kratos returns with Atreus in an epic Norse saga."
+          },
+          {
+            title: "The Last of Us Part I",
+            price: "249.99BWP",
+            image: "https://upload.wikimedia.org/wikipedia/en/b/bd/The_Last_of_Us_Part_I.jpg",
+            desc: "A powerful story of survival, remade for PS5."
+          },
+          {
+            title: "Tekken 3 (Classic)",
+            price: "119.99BWP",
+            image: "https://upload.wikimedia.org/wikipedia/en/d/d7/Tekken_3_cover.jpg",
+            desc: "The legendary arcade fighting game, now remastered."
+          },
+          {
+            title: "Crash Bandicoot Trilogy",
+            price: "239.99BWP",
+            image: "https://upload.wikimedia.org/wikipedia/en/b/b3/Crash_Bandicoot_N._Sane_Trilogy.jpg",
+            desc: "3 classic games remade with stunning visuals and gameplay."
+          },
+          {
+            title: "FIFA 23",
+            price: "444.99BWP",
+            image: "https://upload.wikimedia.org/wikipedia/en/4/40/FIFA_23_Cover.jpg",
+            desc: "The final FIFA game from EA Sports, featuring World Cup mode."
+          },
+          {
+            title: "Horizon Forbidden West",
+            price: "254.99BWP",
+            image: "https://upload.wikimedia.org/wikipedia/en/0/03/Horizon_Forbidden_West_cover_art.jpg",
+            desc: "Aloy returns in a vast, post-apocalyptic open world."
+          },
+          {
+            title: "Gran Turismo 7",
+            price: "259.99BWP",
+            image: "https://upload.wikimedia.org/wikipedia/en/2/28/Gran_Turismo_7.jpg",
+            desc: "Ultimate racing simulator with breathtaking graphics."
+          },
+          {
+            title: "Elden Ring",
+            price: "159.99BWP",
+            image: "https://upload.wikimedia.org/wikipedia/en/b/b9/Elden_Ring_Box_art.jpg",
+            desc: "Explore a vast, deadly world from the creators of Dark Souls."
+          },
+          {
+            title: "Uncharted: Legacy of Thieves",
+            price: "249.99BWP",
+            image: "https://upload.wikimedia.org/wikipedia/en/f/f2/Uncharted_Legacy_of_Thieves_Collection_cover.jpg",
+            desc: "Nathan Drake’s story remastered with explosive adventures."
+          },
+          {
+            title: "Resident Evil Village",
+            price: "239.99BWP",
+            image: "https://upload.wikimedia.org/wikipedia/en/6/63/Resident_Evil_Village.png",
+            desc: "Survive the horrors of a twisted European village."
+          },
+          {
+            title: "Ghost of Tsushima",
+            price: "349.99BWP",
+            image: "https://upload.wikimedia.org/wikipedia/en/a/a5/Ghost_of_Tsushima.jpg",
+            desc: "Become a samurai and fight to reclaim your homeland."
+          },
+          {
+            title: "Demon's Souls",
+            price: "469.99BWP",
+            image: "https://upload.wikimedia.org/wikipedia/en/1/17/Demon%27s_Souls_Remake.jpg",
+            desc: "A brutal action RPG rebuilt for a new generation."
+          },
+          {
+            title: "Returnal",
+            price: "359.99BWP",
+            image: "https://upload.wikimedia.org/wikipedia/en/3/35/Returnal_cover_art.jpg",
+            desc: "Survive a hostile alien world in this sci-fi shooter."
+          },
+          {
+            title: "NBA 2K24",
+            price: "259.99BWP",
+            image: "https://upload.wikimedia.org/wikipedia/en/c/c2/NBA_2K24_cover_art.jpg",
+            desc: "Experience realistic basketball action like never before."
+          }
+        ];
 
-    <!-- Game Card 1 -->
-    <div class="col product-card" data-title="Spider-Man 2">
-      <div class="card h-100">
-        <img src="https://upload.wikimedia.org/wikipedia/en/7/74/Spider-Man_2_PS5_box_art.jpg" alt="Spider-Man 2">
-        <div class="card-body">
-          <h5 class="card-title">Spider-Man 2</h5>
-          <p class="card-text">Swing across NYC with Peter and Miles.</p>
-          <p class="price">$69.99</p>
-          <a href="#" class="btn btn-success w-100 mt-auto">Buy Now</a>
-        </div>
-      </div>
+        document.write(games.map(game => `
+          <div class="col product-card">
+            <div class="card h-100 bg-dark text-light">
+              <img src="${game.image}" class="card-img-top" alt="${game.title}">
+              <div class="card-body">
+                <h5 class="card-title">${game.title}</h5>
+                <p class="card-text">${game.desc}</p>
+                <p class="price">${game.price}</p>
+                <a href="cart.html" class="btn btn-primary w-100">Buy Now</a>
+              </div>
+            </div>
+          </div>
+        `).join(''));
+      </script>
+
     </div>
-
-    <!-- Game Card 2 -->
-    <div class="col product-card" data-title="God of War Ragnarok">
-      <div class="card h-100">
-        <img src="https://upload.wikimedia.org/wikipedia/en/6/6d/God_of_War_Ragnarok_cover.jpg" alt="God of War">
-        <div class="card-body">
-          <h5 class="card-title">God of War: Ragnarok</h5>
-          <p class="card-text">Join Kratos in the Norse apocalypse.</p>
-          <p class="price">$59.99</p>
-          <a href="#" class="btn btn-success w-100 mt-auto">Buy Now</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Game Card 3 -->
-    <div class="col product-card" data-title="The Last of Us">
-      <div class="card h-100">
-        <img src="https://upload.wikimedia.org/wikipedia/en/b/bd/The_Last_of_Us_Part_I.jpg" alt="The Last of Us">
-        <div class="card-body">
-          <h5 class="card-title">The Last of Us</h5>
-          <p class="card-text">Survive and protect in a ruined world.</p>
-          <p class="price">$49.99</p>
-          <a href="#" class="btn btn-success w-100 mt-auto">Buy Now</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Add more games as needed -->
-
   </div>
-</div>
+</section>
 
 <!-- Footer -->
 <footer>
   <p>&copy; 2025 Montana Game Store. All rights reserved.</p>
 </footer>
 
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Game Search Script -->
-<script>
-  document.getElementById("searchInput").addEventListener("keyup", function () {
-    const filter = this.value.toLowerCase();
-    const games = document.querySelectorAll(".product-card");
-    let visible = 0;
-
-    games.forEach(card => {
-      const title = card.getAttribute("data-title").toLowerCase();
-      if (title.includes(filter)) {
-        card.style.display = "block";
-        visible++;
-      } else {
-        card.style.display = "none";
-      }
-    });
-
-    document.getElementById("noResults").style.display = visible === 0 ? "block" : "none";
-  });
-</script>
-
 </body>
 </html>
