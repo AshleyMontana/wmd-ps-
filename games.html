@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Montana | All Games</title>
+  <title>Montana | Game Library</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
@@ -32,6 +32,18 @@
     .social-links a:hover {
       color: #007bff;
     }
+    #searchBox {
+      max-width: 500px;
+      margin: 20px auto;
+    }
+    #notFoundMessage {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+    }
   </style>
 </head>
 <body>
@@ -39,18 +51,17 @@
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="#">🎮 Montana</a>
+    <a class="navbar-brand" href="index.html">🎮 Montana</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto">
         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="games.html">Games</a></li>
+        <li class="nav-item"><a class="nav-link active" href="games.html">Games</a></li>
         <li class="nav-item"><a class="nav-link" href="promotions.html">Promotions</a></li>
         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -58,22 +69,36 @@
             🛒 Cart <span class="badge bg-warning" id="cartCount">0</span>
           </a>
         </li>
+        <li class="nav-item">
+          <button class="btn btn-primary ms-2" onclick="showLogin()">Login</button>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- Header -->
+<!-- Header with Search -->
 <header class="py-5 text-center text-white" style="background: linear-gradient(to right, #000428, #004e92);">
   <div class="container">
     <h1 class="fw-bold">🎮 Montana Game Library</h1>
     <p class="lead">Explore the top 15 trending and classic PlayStation games</p>
+    <div class="input-group mb-3" id="searchBox">
+      <input type="text" class="form-control" placeholder="Search games..." id="searchInput">
+      <button class="btn btn-outline-light" type="button" onclick="searchGames()">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
   </div>
 </header>
 
 <!-- Game Grid -->
 <div class="container my-5">
   <div class="row row-cols-1 row-cols-md-3 g-4" id="gameList"></div>
+</div>
+
+<!-- Not Found Message -->
+<div class="alert alert-danger" id="notFoundMessage" role="alert">
+  Sorry, this game is coming soon! 🚀
 </div>
 
 <!-- Footer -->
@@ -127,25 +152,52 @@
   const gameList = document.getElementById("gameList");
   const cartCount = document.getElementById("cartCount");
 
-  // Initialize cart count
-  updateCartCount();
+  // Initialize page
+  function initPage() {
+    renderGames();
+    updateCartCount();
+  }
 
-  games.forEach(game => {
-    const card = document.createElement("div");
-    card.className = "col game-card";
-    card.innerHTML = `
-      <div class="card h-100">
-        <img src="${game.image}" class="card-img-top" alt="${game.name}">
-        <div class="card-body">
-          <h5 class="card-title">${game.name}</h5>
-          <p class="price text-success fw-bold">$${game.price.toFixed(2)}</p>
-          <button class="btn btn-primary w-100" onclick='addToCart(${JSON.stringify(game)})'>Buy Now</button>
+  // Render all games
+  function renderGames() {
+    gameList.innerHTML = "";
+    games.forEach(game => {
+      const card = document.createElement("div");
+      card.className = "col game-card";
+      card.innerHTML = `
+        <div class="card h-100">
+          <img src="${game.image}" class="card-img-top" alt="${game.name}">
+          <div class="card-body">
+            <h5 class="card-title">${game.name}</h5>
+            <p class="price text-success fw-bold">$${game.price.toFixed(2)}</p>
+            <button class="btn btn-primary w-100" onclick="addToCart(${JSON.stringify(game)})">Buy Now</button>
+          </div>
         </div>
-      </div>
-    `;
-    gameList.appendChild(card);
-  });
+      `;
+      gameList.appendChild(card);
+    });
+  }
 
+  // Search functionality
+  function searchGames() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const gameCards = document.getElementsByClassName('game-card');
+    let found = false;
+
+    Array.from(gameCards).forEach(card => {
+      const gameName = card.querySelector('.card-title').textContent.toLowerCase();
+      if (gameName.includes(searchTerm)) {
+        card.style.display = 'block';
+        found = true;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    document.getElementById('notFoundMessage').style.display = found ? 'none' : 'block';
+  }
+
+  // Cart functionality
   function addToCart(game) {
     let cart = JSON.parse(localStorage.getItem("montanaCart")) || [];
     cart.push(game);
@@ -158,6 +210,23 @@
     const cart = JSON.parse(localStorage.getItem("montanaCart")) || [];
     cartCount.textContent = cart.length;
   }
+
+  // Login functionality
+  function showLogin() {
+    const username = prompt("Enter your name to log in:");
+    if (username) {
+      localStorage.setItem("montanaUser", username);
+      alert("Welcome " + username + "! You are now logged in.");
+    }
+  }
+
+  // Initialize on page load
+  initPage();
+
+  // Enable search on Enter key
+  document.getElementById('searchInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') searchGames();
+  });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
