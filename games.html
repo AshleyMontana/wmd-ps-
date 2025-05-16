@@ -5,33 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Montana | All Games</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     body {
       background-color: #f4f4f4;
+      padding-top: 80px;
     }
     .game-card img {
       height: 300px;
       object-fit: cover;
     }
-    .promo-btn {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 999;
+    .navbar {
+      background: linear-gradient(to right, #000428, #004e92);
     }
     footer {
-      text-align: center;
-      padding: 1rem;
       background-color: #222;
       color: #ccc;
-      margin-top: 2rem;
+      padding: 2rem 0;
+    }
+    .social-links a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+    .social-links a:hover {
+      color: #007bff;
     }
   </style>
 </head>
 <body>
 
-<!-- Promotion Button -->
-<a href="promotion.html" class="btn btn-warning promo-btn">🎁 Promotions</a>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">🎮 Montana</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="games.html">Games</a></li>
+        <li class="nav-item"><a class="nav-link" href="promotions.html">Promotions</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="cart.html">
+            🛒 Cart <span class="badge bg-warning" id="cartCount">0</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 <!-- Header -->
 <header class="py-5 text-center text-white" style="background: linear-gradient(to right, #000428, #004e92);">
@@ -47,29 +77,58 @@
 </div>
 
 <!-- Footer -->
-<footer>&copy; 2025 Montana Game Store. All rights reserved.</footer>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <h5>Contact Us</h5>
+        <p class="mb-1"><i class="fas fa-phone me-2"></i>+267 76 957 324</p>
+        <p><i class="fas fa-envelope me-2"></i>info@montanagames.com</p>
+      </div>
+      
+      <div class="col-md-4 mb-4 text-center">
+        <h5>Follow Us</h5>
+        <div class="social-links">
+          <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      
+      <div class="col-md-4 mb-4 text-md-end">
+        <h5>Legal</h5>
+        <p>&copy; 2025 Montana Game Store</p>
+        <p>All rights reserved</p>
+      </div>
+    </div>
+  </div>
+</footer>
 
 <!-- Scripts -->
 <script>
   const games = [
-    { name: "Spider-Man 2", price: 69.99, image: "https://upload.wikimedia.org/wikipedia/en/7/74/Spider-Man_2_PS5_box_art.jpg" },
-    { name: "God of War: Ragnarok", price: 59.99, image: "https://upload.wikimedia.org/wikipedia/en/6/6d/God_of_War_Ragnarok_cover.jpg" },
-    { name: "The Last of Us Part I", price: 49.99, image: "https://upload.wikimedia.org/wikipedia/en/b/bd/The_Last_of_Us_Part_I.jpg" },
+    { name: "Spider-Man 2", price: 69.99, image: "https://m.media-amazon.com/images/I/81TfA9-QciL._SL1500_.jpg" },
+    { name: "God of War: Ragnarok", price: 59.99, image: "https://m.media-amazon.com/images/I/91B7+8lG3XL._SL1500_.jpg" },
+    { name: "The Last of Us Part I", price: 49.99, image: "https://m.media-amazon.com/images/I/81tL3Cb9gQL._SL1500_.jpg" },
     { name: "Tekken 3 (Classic)", price: 19.99, image: "https://upload.wikimedia.org/wikipedia/en/d/d7/Tekken_3_cover.jpg" },
-    { name: "Crash Bandicoot Trilogy", price: 39.99, image: "https://upload.wikimedia.org/wikipedia/en/b/b3/Crash_Bandicoot_N._Sane_Trilogy.jpg" },
-    { name: "FIFA 23", price: 44.99, image: "https://upload.wikimedia.org/wikipedia/en/4/40/FIFA_23_Cover.jpg" },
-    { name: "Hogwarts Legacy", price: 69.99, image: "https://upload.wikimedia.org/wikipedia/en/4/44/Hogwarts_Legacy_cover.jpg" },
-    { name: "Elden Ring", price: 59.99, image: "https://upload.wikimedia.org/wikipedia/en/b/b9/Elden_Ring_Box_art.jpg" },
-    { name: "Resident Evil 4 Remake", price: 54.99, image: "https://upload.wikimedia.org/wikipedia/en/f/f3/Resident_Evil_4_remake_cover_art.jpg" },
-    { name: "Final Fantasy XVI", price: 69.99, image: "https://upload.wikimedia.org/wikipedia/en/c/c5/Final_Fantasy_XVI_cover_art.jpg" },
-    { name: "Uncharted: Legacy of Thieves", price: 49.99, image: "https://upload.wikimedia.org/wikipedia/en/5/59/Uncharted_Legacy_of_Thieves_Collection.jpg" },
-    { name: "Gran Turismo 7", price: 59.99, image: "https://upload.wikimedia.org/wikipedia/en/f/f1/Gran_Turismo_7_cover_art.jpg" },
-    { name: "Cyberpunk 2077", price: 39.99, image: "https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg" },
-    { name: "Call of Duty: Modern Warfare II", price: 69.99, image: "https://upload.wikimedia.org/wikipedia/en/2/28/Call_of_Duty_Modern_Warfare_II_Box_Art.jpg" },
-    { name: "Ghost of Tsushima", price: 49.99, image: "https://upload.wikimedia.org/wikipedia/en/a/a3/Ghost_of_Tsushima.jpg" }
+    { name: "Crash Bandicoot Trilogy", price: 39.99, image: "https://m.media-amazon.com/images/I/81lz8q3sHjL._SL1500_.jpg" },
+    { name: "FIFA 23", price: 44.99, image: "https://m.media-amazon.com/images/I/81lZ5Lv++LL._SL1500_.jpg" },
+    { name: "Hogwarts Legacy", price: 69.99, image: "https://m.media-amazon.com/images/I/913C+8nNqmL._SL1500_.jpg" },
+    { name: "Elden Ring", price: 59.99, image: "https://m.media-amazon.com/images/I/81WmojWAxFL._SL1500_.jpg" },
+    { name: "Resident Evil 4 Remake", price: 54.99, image: "https://m.media-amazon.com/images/I/81xN9qg3nGL._SL1500_.jpg" },
+    { name: "Final Fantasy XVI", price: 69.99, image: "https://m.media-amazon.com/images/I/91pS+1n+1hL._SL1500_.jpg" },
+    { name: "Uncharted: Legacy of Thieves", price: 49.99, image: "https://m.media-amazon.com/images/I/81P0D8n+ZoL._SL1500_.jpg" },
+    { name: "Gran Turismo 7", price: 59.99, image: "https://m.media-amazon.com/images/I/81YJkF0tJLL._SL1500_.jpg" },
+    { name: "Cyberpunk 2077", price: 39.99, image: "https://m.media-amazon.com/images/I/81HfmqYyMLL._SL1500_.jpg" },
+    { name: "Call of Duty: Modern Warfare II", price: 69.99, image: "https://m.media-amazon.com/images/I/813q6wVZ6oL._SL1500_.jpg" },
+    { name: "Ghost of Tsushima", price: 49.99, image: "https://m.media-amazon.com/images/I/81L5dG+474L._SL1500_.jpg" }
   ];
 
   const gameList = document.getElementById("gameList");
+  const cartCount = document.getElementById("cartCount");
+
+  // Initialize cart count
+  updateCartCount();
 
   games.forEach(game => {
     const card = document.createElement("div");
@@ -91,9 +150,15 @@
     let cart = JSON.parse(localStorage.getItem("montanaCart")) || [];
     cart.push(game);
     localStorage.setItem("montanaCart", JSON.stringify(cart));
+    updateCartCount();
     alert(`${game.name} added to cart!`);
   }
-</script>
 
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem("montanaCart")) || [];
+    cartCount.textContent = cart.length;
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
