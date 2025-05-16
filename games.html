@@ -3,100 +3,199 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Montana | All Games</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Montana | Games</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
     body {
-      background-color: #f4f4f4;
+      background-color: #121212;
+      color: #f9f9f9;
     }
-    .game-card img {
-      height: 300px;
+
+    .navbar {
+      background-color: #0057ff;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+      margin-right: 1rem;
+      transition: background 0.3s;
+    }
+
+    .nav-link:hover {
+      background-color: #003ecb;
+      border-radius: 5px;
+      padding: 0.4rem 0.75rem;
+    }
+
+    header {
+      background: linear-gradient(to right, #000428, #004e92);
+      padding: 4rem 1rem;
+      text-align: center;
+      color: white;
+    }
+
+    .card {
+      background-color: #1f1f1f;
+      border: none;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card img {
+      height: 250px;
       object-fit: cover;
+      border-radius: 0.5rem;
     }
-    .promo-btn {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 999;
+
+    .card-body {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
+
+    .price {
+      font-weight: bold;
+      color: #00ff88;
+    }
+
+    .alert {
+      display: none;
+    }
+
     footer {
+      background-color: #1f1f1f;
+      color: #ccc;
       text-align: center;
       padding: 1rem;
-      background-color: #222;
-      color: #ccc;
       margin-top: 2rem;
+    }
+
+    #searchInput {
+      max-width: 500px;
+      margin: 2rem auto 1rem;
     }
   </style>
 </head>
 <body>
 
-<!-- Promotion Button -->
-<a href="promotion.html" class="btn btn-warning promo-btn">🎁 Promotions</a>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">🎮 Montana</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active bg-light text-dark rounded" href="#">Games</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+        <li class="nav-item"><a class="nav-link" href="cart.html">🛒 Cart</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 <!-- Header -->
-<header class="py-5 text-center text-white" style="background: linear-gradient(to right, #000428, #004e92);">
+<header>
   <div class="container">
-    <h1 class="fw-bold">🎮 Montana Game Library</h1>
-    <p class="lead">Explore the top 15 trending and classic PlayStation games</p>
+    <h1>Our Top Games</h1>
+    <p>Discover the best PlayStation games available now</p>
   </div>
 </header>
 
-<!-- Game Grid -->
-<div class="container my-5">
-  <div class="row row-cols-1 row-cols-md-3 g-4" id="gameList"></div>
+<!-- Search -->
+<div class="container text-center">
+  <input type="text" id="searchInput" class="form-control form-control-lg" placeholder="Search for a game...">
+  <div id="noResults" class="alert alert-warning mt-3">🚧 Game coming soon!</div>
+</div>
+
+<!-- Games Grid -->
+<div class="container py-5">
+  <div class="row row-cols-1 row-cols-md-3 g-4" id="gamesGrid">
+
+    <!-- Game Card 1 -->
+    <div class="col product-card" data-title="Spider-Man 2">
+      <div class="card h-100">
+        <img src="https://upload.wikimedia.org/wikipedia/en/7/74/Spider-Man_2_PS5_box_art.jpg" alt="Spider-Man 2">
+        <div class="card-body">
+          <h5 class="card-title">Spider-Man 2</h5>
+          <p class="card-text">Swing across NYC with Peter and Miles.</p>
+          <p class="price">$69.99</p>
+          <a href="#" class="btn btn-success w-100 mt-auto">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Card 2 -->
+    <div class="col product-card" data-title="God of War Ragnarok">
+      <div class="card h-100">
+        <img src="https://upload.wikimedia.org/wikipedia/en/6/6d/God_of_War_Ragnarok_cover.jpg" alt="God of War">
+        <div class="card-body">
+          <h5 class="card-title">God of War: Ragnarok</h5>
+          <p class="card-text">Join Kratos in the Norse apocalypse.</p>
+          <p class="price">$59.99</p>
+          <a href="#" class="btn btn-success w-100 mt-auto">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Card 3 -->
+    <div class="col product-card" data-title="The Last of Us">
+      <div class="card h-100">
+        <img src="https://upload.wikimedia.org/wikipedia/en/b/bd/The_Last_of_Us_Part_I.jpg" alt="The Last of Us">
+        <div class="card-body">
+          <h5 class="card-title">The Last of Us</h5>
+          <p class="card-text">Survive and protect in a ruined world.</p>
+          <p class="price">$49.99</p>
+          <a href="#" class="btn btn-success w-100 mt-auto">Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more games as needed -->
+
+  </div>
 </div>
 
 <!-- Footer -->
-<footer>&copy; 2025 Montana Game Store. All rights reserved.</footer>
+<footer>
+  <p>&copy; 2025 Montana Game Store. All rights reserved.</p>
+</footer>
 
-<!-- Scripts -->
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Game Search Script -->
 <script>
-  const games = [
-    { name: "Spider-Man 2", price: 69.99, image: "https://i.postimg.cc/hvJHZgw2/wmd.jpg" },
-    { name: "God of War: Ragnarok", price: 59.99, image: "https://i.postimg.cc/kgNLpT1P/god-of-war.jpg" },
-    { name: "The Last of Us Part I", price: 49.99, image: "https://i.postimg.cc/fLPP9pLm/last-of-us.jpg" },
-    { name: "Tekken 3 (Classic)", price: 19.99, image: "https://i.postimg.cc/q7VyzL4q/taken-3.jpg" },
-    { name: "Crash Bandicoot Trilogy", price: 39.99, image: "https://i.postimg.cc/NG49QtKK/crash.jpg" },
-    { name: "FIFA 23", price: 44.99, image: "https://i.postimg.cc/m23GvZkn/fifa-23.jpg" },
-    { name: "Hogwarts Legacy", price: 69.99, image: "https://i.postimg.cc/nVv5zRxj/hogwarts.jpg" },
-    { name: "Elden Ring", price: 59.99, image: "https://i.postimg.cc/TY04jKpT/elden-ring.jpg" },
-    { name: "Resident Evil 4 Remake", price: 54.99, image: "https://i.postimg.cc/zfb21ppf/resident-evil.jpg" },
-    { name: "Final Fantasy XVI", price: 69.99, image: "https://i.postimg.cc/tCBBZ8MT/final-fantasy.jpg" },
-    { name: "Uncharted: Legacy of Thieves", price: 49.99, image: "https://i.postimg.cc/qRHwHrzm/uncharted.jpg" },
-    { name: "Gran Turismo 7", price: 59.99, image: "https://i.postimg.cc/sxw4WZK8/gran-tourisim.jpg" },
-    { name: "Cyberpunk 2077", price: 39.99, image: "https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg" },
-    { name: "Call of Duty: Modern Warfare II", price: 69.99, image: "https://i.postimg.cc/Ss46tGv3/call-of-duty.jpg" },
-    { name: "Ghost of Tsushima", price: 49.99, image: "https://i.postimg.cc/j2dzRSKh/ghost.jpg" }
-  ];
+  document.getElementById("searchInput").addEventListener("keyup", function () {
+    const filter = this.value.toLowerCase();
+    const games = document.querySelectorAll(".product-card");
+    let visible = 0;
 
-  const gameList = document.getElementById("gameList");
+    games.forEach(card => {
+      const title = card.getAttribute("data-title").toLowerCase();
+      if (title.includes(filter)) {
+        card.style.display = "block";
+        visible++;
+      } else {
+        card.style.display = "none";
+      }
+    });
 
-  games.forEach(game => {
-    const card = document.createElement("div");
-    card.className = "col game-card";
-    card.innerHTML = `
-      <div class="card h-100">
-        <img src="${game.image}" class="card-img-top" alt="${game.name}">
-        <div class="card-body">
-          <h5 class="card-title">${game.name}</h5>
-          <p class="price text-success fw-bold">$${game.price.toFixed(2)}</p>
-          <button class="btn btn-primary w-100" onclick='addToCart(${JSON.stringify(game)})'>Buy Now</button>
-        </div>
-      </div>
-    `;
-    gameList.appendChild(card);
+    document.getElementById("noResults").style.display = visible === 0 ? "block" : "none";
   });
-
-  function addToCart(game) {
-    let cart = JSON.parse(localStorage.getItem("montanaCart")) || [];
-    cart.push(game);
-    localStorage.setItem("montanaCart", JSON.stringify(cart));
-    alert(`${game.name} added to cart!`);
-  }
 </script>
 
 </body>
 </html>
-
-
-
