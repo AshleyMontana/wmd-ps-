@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Montana | All Games</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
     :root {
       --primary: #0057ff;
@@ -87,119 +87,8 @@
 <!-- Game Grid -->
 <section class="py-5">
   <div class="container">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-
-      <!-- Games (15 total) -->
-      <!-- Example Game Card -->
-      <script>
-        const games = [
-          {
-            title: "Spider-Man 2",
-            price: "$69.99",
-            image: "https://upload.wikimedia.org/wikipedia/en/7/74/Spider-Man_2_PS5_box_art.jpg",
-            desc: "Play as Peter & Miles in a fast-paced open world adventure."
-          },
-          {
-            title: "God of War: Ragnarok",
-            price: "359.99BWP",
-            image: "https://upload.wikimedia.org/wikipedia/en/6/6d/God_of_War_Ragnarok_cover.jpg",
-            desc: "Kratos returns with Atreus in an epic Norse saga."
-          },
-          {
-            title: "The Last of Us Part I",
-            price: "249.99BWP",
-            image: "https://upload.wikimedia.org/wikipedia/en/b/bd/The_Last_of_Us_Part_I.jpg",
-            desc: "A powerful story of survival, remade for PS5."
-          },
-          {
-            title: "Tekken 3 (Classic)",
-            price: "119.99BWP",
-            image: "https://upload.wikimedia.org/wikipedia/en/d/d7/Tekken_3_cover.jpg",
-            desc: "The legendary arcade fighting game, now remastered."
-          },
-          {
-            title: "Crash Bandicoot Trilogy",
-            price: "239.99BWP",
-            image: "https://upload.wikimedia.org/wikipedia/en/b/b3/Crash_Bandicoot_N._Sane_Trilogy.jpg",
-            desc: "3 classic games remade with stunning visuals and gameplay."
-          },
-          {
-            title: "FIFA 23",
-            price: "444.99BWP",
-            image: "https://upload.wikimedia.org/wikipedia/en/4/40/FIFA_23_Cover.jpg",
-            desc: "The final FIFA game from EA Sports, featuring World Cup mode."
-          },
-          {
-            title: "Horizon Forbidden West",
-            price: "254.99BWP",
-            image: "https://upload.wikimedia.org/wikipedia/en/0/03/Horizon_Forbidden_West_cover_art.jpg",
-            desc: "Aloy returns in a vast, post-apocalyptic open world."
-          },
-          {
-            title: "Gran Turismo 7",
-            price: "259.99BWP",
-            image: "https://upload.wikimedia.org/wikipedia/en/2/28/Gran_Turismo_7.jpg",
-            desc: "Ultimate racing simulator with breathtaking graphics."
-          },
-          {
-            title: "Elden Ring",
-            price: "159.99BWP",
-            image: "https://upload.wikimedia.org/wikipedia/en/b/b9/Elden_Ring_Box_art.jpg",
-            desc: "Explore a vast, deadly world from the creators of Dark Souls."
-          },
-          {
-            title: "Uncharted: Legacy of Thieves",
-            price: "249.99BWP",
-            image: "https://upload.wikimedia.org/wikipedia/en/f/f2/Uncharted_Legacy_of_Thieves_Collection_cover.jpg",
-            desc: "Nathan Drake’s story remastered with explosive adventures."
-          },
-          {
-            title: "Resident Evil Village",
-            price: "239.99BWP",
-            image: "https://upload.wikimedia.org/wikipedia/en/6/63/Resident_Evil_Village.png",
-            desc: "Survive the horrors of a twisted European village."
-          },
-          {
-            title: "Ghost of Tsushima",
-            price: "349.99BWP",
-            image: "https://upload.wikimedia.org/wikipedia/en/a/a5/Ghost_of_Tsushima.jpg",
-            desc: "Become a samurai and fight to reclaim your homeland."
-          },
-          {
-            title: "Demon's Souls",
-            price: "469.99BWP",
-            image: "https://upload.wikimedia.org/wikipedia/en/1/17/Demon%27s_Souls_Remake.jpg",
-            desc: "A brutal action RPG rebuilt for a new generation."
-          },
-          {
-            title: "Returnal",
-            price: "359.99BWP",
-            image: "https://upload.wikimedia.org/wikipedia/en/3/35/Returnal_cover_art.jpg",
-            desc: "Survive a hostile alien world in this sci-fi shooter."
-          },
-          {
-            title: "NBA 2K24",
-            price: "259.99BWP",
-            image: "https://upload.wikimedia.org/wikipedia/en/c/c2/NBA_2K24_cover_art.jpg",
-            desc: "Experience realistic basketball action like never before."
-          }
-        ];
-
-        document.write(games.map(game => `
-          <div class="col product-card">
-            <div class="card h-100 bg-dark text-light">
-              <img src="${game.image}" class="card-img-top" alt="${game.title}">
-              <div class="card-body">
-                <h5 class="card-title">${game.title}</h5>
-                <p class="card-text">${game.desc}</p>
-                <p class="price">${game.price}</p>
-                <a href="cart.html" class="btn btn-primary w-100">Buy Now</a>
-              </div>
-            </div>
-          </div>
-        `).join(''));
-      </script>
-
+    <div class="row row-cols-1 row-cols-md-3 g-4" id="gamesContainer">
+      <!-- Games will be inserted here -->
     </div>
   </div>
 </section>
@@ -210,5 +99,132 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+
+<script>
+  const games = [
+    {
+      title: "Spider-Man 2",
+      price: "$69.99",
+      image: "https://upload.wikimedia.org/wikipedia/en/7/74/Spider-Man_2_PS5_box_art.jpg",
+      desc: "Play as Peter & Miles in a fast-paced open world adventure."
+    },
+    {
+      title: "God of War: Ragnarok",
+      price: "$59.99",
+      image: "https://upload.wikimedia.org/wikipedia/en/6/6d/God_of_War_Ragnarok_cover.jpg",
+      desc: "Kratos returns with Atreus in an epic Norse saga."
+    },
+    {
+      title: "The Last of Us Part I",
+      price: "$49.99",
+      image: "https://upload.wikimedia.org/wikipedia/en/b/bd/The_Last_of_Us_Part_I.jpg",
+      desc: "A powerful story of survival, remade for PS5."
+    },
+    {
+      title: "Tekken 3 (Classic)",
+      price: "$19.99",
+      image: "https://upload.wikimedia.org/wikipedia/en/d/d7/Tekken_3_cover.jpg",
+      desc: "The legendary arcade fighting game, now remastered."
+    },
+    {
+      title: "Crash Bandicoot Trilogy",
+      price: "$39.99",
+      image: "https://upload.wikimedia.org/wikipedia/en/b/b3/Crash_Bandicoot_N._Sane_Trilogy.jpg",
+      desc: "3 classic games remade with stunning visuals and gameplay."
+    },
+    {
+      title: "FIFA 23",
+      price: "$44.99",
+      image: "https://upload.wikimedia.org/wikipedia/en/4/40/FIFA_23_Cover.jpg",
+      desc: "The final FIFA game from EA Sports, featuring World Cup mode."
+    },
+    {
+      title: "Horizon Forbidden West",
+      price: "$54.99",
+      image: "https://upload.wikimedia.org/wikipedia/en/0/03/Horizon_Forbidden_West_cover_art.jpg",
+      desc: "Aloy returns in a vast, post-apocalyptic open world."
+    },
+    {
+      title: "Gran Turismo 7",
+      price: "$59.99",
+      image: "https://upload.wikimedia.org/wikipedia/en/2/28/Gran_Turismo_7.jpg",
+      desc: "Ultimate racing simulator with breathtaking graphics."
+    },
+    {
+      title: "Elden Ring",
+      price: "$59.99",
+      image: "https://upload.wikimedia.org/wikipedia/en/b/b9/Elden_Ring_Box_art.jpg",
+      desc: "Explore a vast, deadly world from the creators of Dark Souls."
+    },
+    {
+      title: "Uncharted: Legacy of Thieves",
+      price: "$49.99",
+      image: "https://upload.wikimedia.org/wikipedia/en/f/f2/Uncharted_Legacy_of_Thieves_Collection_cover.jpg",
+      desc: "Nathan Drake’s story remastered with explosive adventures."
+    },
+    {
+      title: "Resident Evil Village",
+      price: "$39.99",
+      image: "https://upload.wikimedia.org/wikipedia/en/6/63/Resident_Evil_Village.png",
+      desc: "Survive the horrors of a twisted European village."
+    },
+    {
+      title: "Ghost of Tsushima",
+      price: "$49.99",
+      image: "https://upload.wikimedia.org/wikipedia/en/a/a5/Ghost_of_Tsushima.jpg",
+      desc: "Become a samurai and fight to reclaim your homeland."
+    },
+    {
+      title: "Demon's Souls",
+      price: "$69.99",
+      image: "https://upload.wikimedia.org/wikipedia/en/1/17/Demon%27s_Souls_Remake.jpg",
+      desc: "A brutal action RPG rebuilt for a new generation."
+    },
+    {
+      title: "Returnal",
+      price: "$59.99",
+      image: "https://upload.wikimedia.org/wikipedia/en/3/35/Returnal_cover_art.jpg",
+      desc: "Survive a hostile alien world in this sci-fi shooter."
+    },
+    {
+      title: "NBA 2K24",
+      price: "$59.99",
+      image: "https://upload.wikimedia.org/wikipedia/en/c/c2/NBA_2K24_cover_art.jpg",
+      desc: "Experience realistic basketball action like never before."
+    }
+  ];
+
+  const container = document.getElementById('gamesContainer');
+
+  function addToCart(gameTitle) {
+    let cart = JSON.parse(localStorage.getItem('montanaCart')) || [];
+    if (!cart.includes(gameTitle)) {
+      cart.push(gameTitle);
+      localStorage.setItem('montanaCart', JSON.stringify(cart));
+      alert(`"${gameTitle}" added to cart!`);
+    } else {
+      alert(`"${gameTitle}" is already in your cart.`);
+    }
+    window.location.href = 'cart.html';
+  }
+
+  // Render games
+  games.forEach(game => {
+    const card = document.createElement('div');
+    card.className = 'col product-card';
+    card.innerHTML = `
+      <div class="card h-100 bg-dark text-light">
+        <img src="${game.image}" class="card-img-top" alt="${game.title}">
+        <div class="card-body d-flex flex-column">
+        <h5 class="card-title">${game.title}</h5>
+        <p class="card-text flex-grow-1">${game.desc}</p>
+        <p class="price">${game.price}</p>
+        <button class="btn btn-primary w-100 mt-auto" onclick="addToCart('${game.title}')">Buy Now</button>
+        </div>
+        </div>
+        `;
+container.appendChild(card);
+});
+</script>
+
+</body> </html> ```
