@@ -169,7 +169,7 @@
           <div class="card-body">
             <h5 class="card-title">${game.name}</h5>
             <p class="price text-success fw-bold">$${game.price.toFixed(2)}</p>
-            <button class="btn btn-primary w-100" onclick="addToCart(${JSON.stringify(game)})">Buy Now</button>
+            <button class="btn btn-primary w-100" onclick="addToCart('${game.name}')">Buy Now</button>
           </div>
         </div>
       `;
@@ -177,7 +177,33 @@
     });
   }
 
-  // Enhanced search functionality
+  // Add to cart functionality
+  function addToCart(gameName) {
+    const game = games.find(g => g.name === gameName);
+    if (!game) return;
+
+    let cart = JSON.parse(localStorage.getItem("montanaCart")) || [];
+    
+    // Check if game already exists in cart
+    const existingItem = cart.find(item => item.name === game.name);
+    
+    if (!existingItem) {
+      cart.push(game);
+      localStorage.setItem("montanaCart", JSON.stringify(cart));
+      updateCartCount();
+      alert(`${game.name} added to cart! 🎉`);
+    } else {
+      alert(`${game.name} is already in your cart!`);
+    }
+  }
+
+  // Update cart count
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem("montanaCart")) || [];
+    cartCount.textContent = cart.length;
+  }
+
+  // Search functionality
   function searchGames() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
     const gameCards = document.getElementsByClassName('game-card');
@@ -194,20 +220,6 @@
     });
 
     document.getElementById('notFoundMessage').style.display = found ? 'none' : 'block';
-  }
-
-  // Cart functionality
-  function addToCart(game) {
-    let cart = JSON.parse(localStorage.getItem("montanaCart")) || [];
-    cart.push(game);
-    localStorage.setItem("montanaCart", JSON.stringify(cart));
-    updateCartCount();
-    alert(`${game.name} added to cart!`);
-  }
-
-  function updateCartCount() {
-    const cart = JSON.parse(localStorage.getItem("montanaCart")) || [];
-    cartCount.textContent = cart.length;
   }
 
   // Login functionality
